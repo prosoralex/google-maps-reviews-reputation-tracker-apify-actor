@@ -1,0 +1,8 @@
+{
+  "name": "google-maps-reviews-reputation-tracker-example",
+  "private": true,
+  "type": "module",
+  "description": "Client example for the Google Maps Reviews Scraper with Sentiment & Replies Apify Actor",
+  "scripts": { "start": "node example.mjs" },
+  "dependencies": { "apify-client": "^2.9.0" }
+}

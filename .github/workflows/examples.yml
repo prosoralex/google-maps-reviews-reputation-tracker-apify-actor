@@ -1,0 +1,17 @@
+name: examples
+# Syntax-checks the examples on every push. Does not call the Actor (no token, no cost).
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python -m py_compile examples/python/example.py
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: node --check examples/javascript/example.mjs
+      - run: bash -n examples/curl/run.sh
